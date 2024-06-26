@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Drifting Car 3D</title>
+    <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Include TinyColor library (from CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.2/tinycolor.min.js"></script>
     <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-      }
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
     </style>
-  </head>
-  <body>
-    <a-scene>
-      <!-- 3D Model -->
-      <a-entity
-        gltf-model="/scene.gltf"
-        position="0 0 0"
-        scale="0.1 0.1 0.1"
-      </a-entity>
+</head>
+<body>
+    <div id="scene-container">
+        <a-scene>
+            <!-- 3D Model -->
+            <a-entity
+                id="car"
+                gltf-model="/scene.gltf"
+                position="-2.5 -1.5 15"
+                scale="3 3 3.5"
+            ></a-entity>
 
-      <!-- Blackish Background -->
-    </a-scene>
-  </body>
+            <!-- Sky with initial color -->
+            <a-sky id="sky" color="#222"></a-sky>
+
+            <!-- Camera positioned dynamically -->
+            <a-entity id="cameraWrapper">
+                <a-camera></a-camera>
+            </a-entity>
+        </a-scene>
+    </div>
+    <script src="app.js"></script>
+</body>
 </html>
